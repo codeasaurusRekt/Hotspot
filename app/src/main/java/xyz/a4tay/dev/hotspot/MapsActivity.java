@@ -80,7 +80,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         runner.run(() -> {
         try
             {
-//            Toast.makeText(MapsActivity.this, dotProtocols.getDots(), Toast.LENGTH_LONG).show();
             } catch (Exception e)
             {
             e.printStackTrace();
@@ -104,20 +103,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ratingWheelButton.setOnClickListener(v -> {
         animateFab();
         });
-
-//        rateButton1.setOnClickListener(v -> {
-//        if (isOpen)
-//            {
-//            try
-//                {
-//                Toast.makeText(MapsActivity.this, emojiHandler.getEmojiByUnicode(0x1F525), Toast.LENGTH_LONG).show();
-//                } catch (Exception e)
-//                {
-//                e.printStackTrace();
-//                }
-//            }
-//        animateFab();
-//        });
 
         popup = new Dialog(this);
 
@@ -151,9 +136,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             rateButton1.setOnClickListener(v -> {
             if (isOpen)
                 {
-                dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 1, (double)334);
+                dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 1, (double) 334);
                 }
-            animateFab();
             });
 
             rateButton2.setOnClickListener(v -> {
@@ -161,7 +145,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                 dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 2, (double)334);
                 }
-            animateFab();
             });
 
             rateButton3.setOnClickListener(v -> {
@@ -169,7 +152,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                 dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 3, (double)334);
                 }
-            animateFab();
             });
 
             rateButton4.setOnClickListener(v -> {
@@ -177,7 +159,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                 dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 4, (double)334);
                 }
-            animateFab();
             });
 
             rateButton5.setOnClickListener(v -> {
@@ -185,7 +166,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                 dropDot(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 5, (double)334);
                 }
-            animateFab();
             });
 
             try
@@ -206,11 +186,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
                     catch (JSONException e)
                         {
-                        e.printStackTrace();
+                        Toast.makeText(MapsActivity.this,
+                                e.toString()
+                                , Toast.LENGTH_LONG).show();
                         }
                     catch (Exception e)
                         {
-                        e.printStackTrace();
+                        Toast.makeText(MapsActivity.this,
+                                e.toString()
+                                , Toast.LENGTH_LONG).show();
                         }
                     }
                 } catch (Exception e)
@@ -350,8 +334,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
             }
         dotProtocols.putDot(lat,lng,colorCode, dotID);
-        mMap.clear();
-        finish();
-        startActivity(getIntent());
+        mClusterManager.addItem(new ClusterHandler(lat, lng, "From button", "Button time"));
+        mClusterManager.cluster();
+        animateFab();
         }
     }
