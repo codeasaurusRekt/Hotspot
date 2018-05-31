@@ -133,6 +133,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setOnCameraIdleListener(mClusterManager);
             List<ClusterHandler> items = new ArrayList<ClusterHandler>();
 
+
             rateButton1.setOnClickListener(v -> {
             if (isOpen)
                 {
@@ -172,6 +173,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                 JSONArray dotArray = dotProtocols.getDots(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude()).getJSONArray("locations");
 
+                Double dotColorTotal=0.0;
+                Double dotCount=0.0;
+                Double dotAverage;
                 for (int i = 0; i < dotArray.length(); i++)
                     {
                     JSONObject eachDot = null;
@@ -180,7 +184,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         eachDot = dotArray.getJSONObject(i);
                         Double dotLat = eachDot.getDouble("lat");
                         Double dotLng = eachDot.getDouble("lng");
-                        int dotColor = eachDot.getInt("colorCode");
+                        Integer dotColor = eachDot.getInt("colorCode");
+                        dotColorTotal=dotColorTotal+dotColor;
+                        dotCount++;
+                        dotAverage=Math.ceil(dotColorTotal/dotCount);
+
+                        final CustomClusterRenderer renderer = new CustomClusterRenderer(this, mMap, mClusterManager,dotAverage, dotColor);
+                        mClusterManager.setRenderer(renderer);
+
                         items.add(new ClusterHandler(dotLat, dotLng, "hash", "snippet"));
                         mClusterManager.addItems(items);
                         }

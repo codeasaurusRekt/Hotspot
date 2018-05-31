@@ -45,7 +45,7 @@
             android:longClickable="true"
             android:layout_marginEnd="10sp"
             android:layout_marginBottom="60sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_button_icon"
             app:layout_anchor="@+id/navigation"
             app:layout_anchorGravity="top|end"
             app:backgroundTint="#bc2525"
@@ -60,12 +60,12 @@
             android:longClickable="true"
             android:layout_marginEnd="170sp"
             android:layout_marginBottom="0sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_level_1"
             android:visibility="invisible"
             android:clickable="false"
             app:layout_anchor="@+id/btnOpenRatingWheel"
             app:layout_anchorGravity="center"
-            app:backgroundTint="#eacece"
+            app:backgroundTint="#faf5f5"
             app:elevation="6dp"
     />
     <android.support.design.widget.FloatingActionButton
@@ -77,12 +77,12 @@
             android:longClickable="true"
             android:layout_marginEnd="160dp"
             android:layout_marginBottom="134sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_level_2"
             android:visibility="invisible"
             android:clickable="false"
             app:layout_anchor="@+id/btnOpenRatingWheel"
             app:layout_anchorGravity="top|center"
-            app:backgroundTint="#d19494"
+            app:backgroundTint="#f1e5e5"
             app:elevation="6dp"
     />
     <android.support.design.widget.FloatingActionButton
@@ -94,12 +94,12 @@
             android:longClickable="true"
             android:layout_marginEnd="123sp"
             android:layout_marginBottom="185sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_level_3"
             android:visibility="invisible"
             android:clickable="false"
             app:layout_anchor="@+id/btnOpenRatingWheel"
             app:layout_anchorGravity="top|center"
-            app:backgroundTint="#ba5959"
+            app:backgroundTint="#e8d4d4"
             app:elevation="6dp"
     />
     <android.support.design.widget.FloatingActionButton
@@ -111,12 +111,12 @@
             android:longClickable="true"
             android:layout_marginEnd="62sp"
             android:layout_marginBottom="222sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_level_4"
             android:visibility="invisible"
             android:clickable="false"
             app:layout_anchor="@+id/btnOpenRatingWheel"
             app:layout_anchorGravity="top|center"
-            app:backgroundTint="#bc4343"
+            app:backgroundTint="#e0c4c4"
             app:elevation="6dp"
     />
     <android.support.design.widget.FloatingActionButton
@@ -128,12 +128,12 @@
             android:longClickable="true"
             android:layout_marginEnd="0sp"
             android:layout_marginBottom="230sp"
-            android:src="@drawable/fire_icon"
+            android:src="@drawable/hotspot_level_5"
             android:visibility="invisible"
             android:clickable="false"
             app:layout_anchor="@+id/btnOpenRatingWheel"
             app:layout_anchorGravity="top|end"
-            app:backgroundTint="#bc2525"
+            app:backgroundTint="#d7b4b4"
             app:elevation="6dp"
     />
     <android.support.design.widget.FloatingActionButton

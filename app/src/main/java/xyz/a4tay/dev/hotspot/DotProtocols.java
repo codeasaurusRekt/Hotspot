@@ -42,8 +42,8 @@ public class DotProtocols
     public Response putDot(double lat, double lng, Integer colorCode, Double dotID)
         {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\r\n\"body\":\r\n\t{\r\n\t\"lat\":"+lat+"," +
-                "\r\n\t\"lng\":"+lng+",\r\n\t\"locationID\":987654321,\r\n\t\"colorCode\":4\r\n\t\"hash\":''\r\n\t}\r\n}\r\n");
+        RequestBody body = RequestBody.create(mediaType, "{\r\n\"body\":\r\n\t{\r\n\t\"lat\":"+lat+",\r\n\t\"lng\":"+lng+"," +
+                "\r\n\t\"locationID\":987654321,\r\n\t\"colorCode\":"+colorCode+",\r\n\t\"hash\":'this is a test'\r\n\t}\r\n}\r\n");
         Request request = new Request.Builder()
                 .url("https://eg75gef3gi.execute-api.us-east-1.amazonaws.com/alpha")
                 .put(body)
