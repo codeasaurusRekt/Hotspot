@@ -23,15 +23,10 @@ public class DotProtocols
         {
         enableStrictMode();
 
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\r\n\"body\":\r\n\t{\r\n\t\"lat\":"+currentCameraLat+"," +
-                "\r\n\t\"lng\":"+currentCameraLng+",\r\n\t\"locationID\":987654321,\r\n\t\"colorCode\":4\r\n\t\"hash\":'this is a test'\r\n\t}\r\n}\r\n");
         Request request = new Request.Builder()
                 .url("https://eg75gef3gi.execute-api.us-east-1.amazonaws.com/alpha?lat=" + currentCameraLat + "&lng=" + currentCameraLng)
                 .get()
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Cache-Control", "no-cache")
-                .addHeader("Postman-Token", "d4d682fa-2ac2-49ae-bbf5-53f7641dc490")
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -48,8 +43,6 @@ public class DotProtocols
                 .url("https://eg75gef3gi.execute-api.us-east-1.amazonaws.com/alpha")
                 .put(body)
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Cache-Control", "no-cache")
-                .addHeader("Postman-Token", "0fa333f0-a6cd-44ee-9c85-937555b95324")
                 .build();
 
         Response response=null;
@@ -64,5 +57,29 @@ public class DotProtocols
             }
         }
         return response;
+        }
+        public Response putDot(double lat, double lng, Integer colorCode, Double dotID, String hash)
+        {
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\r\n\"body\":\r\n\t{\r\n\t\"lat\":"+lat+",\r\n\t\"lng\":"+lng+"," +
+                    "\r\n\t\"locationID\":123,\r\n\t\"colorCode\":"+colorCode+",\r\n\t\"hash\":"+hash+"\r\n\t}\r\n}\r\n");
+            Request request = new Request.Builder()
+                    .url("https://eg75gef3gi.execute-api.us-east-1.amazonaws.com/alpha")
+                    .put(body)
+                    .addHeader("Content-Type", "application/json")
+                    .build();
+
+            Response response=null;
+            {
+                try
+                {
+                    response = client.newCall(request).execute();
+                    return response;
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            return response;
         }
     }
