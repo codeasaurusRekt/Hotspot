@@ -282,7 +282,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             rateButton5.setEnabled(false);
             hashButton.setEnabled(true);
             isOpen = false;
-        } else if(!isOpen) {
+        } else {
             ratingWheelButton.startAnimation(rotateForward);
             rateButton1.startAnimation(fabOpen);
             rateButton2.startAnimation(fabOpen);
@@ -410,6 +410,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dotProtocols.putDot(lat, lng, colorCode, dotID, hash);
         mClusterManager.addItem(new ClusterHandler(lat, lng, "From button", "Button time"));
         mClusterManager.cluster();
-        animateFab();
     }
 }
