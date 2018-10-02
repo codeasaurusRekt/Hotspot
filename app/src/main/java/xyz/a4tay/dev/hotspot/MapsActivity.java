@@ -163,6 +163,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Double dotLat = eachDot.getDouble("lat");
                         Double dotLng = eachDot.getDouble("lng");
                         Integer dotColor = eachDot.getInt("colorCode");
+                        String dotHash = eachDot.getString("hash");
                         dotColorTotal = dotColorTotal + dotColor;
                         dotCount++;
                         dotAverage = Math.ceil(dotColorTotal / dotCount);
@@ -170,7 +171,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         final CustomClusterRenderer renderer = new CustomClusterRenderer(this, mMap, mClusterManager, dotAverage, dotColor);
                         mClusterManager.setRenderer(renderer);
 
-                        items.add(new ClusterHandler(dotLat, dotLng, "hash", "snippet"));
+                        items.add(new ClusterHandler(dotLat, dotLng, dotHash, "snippet"));
                         mClusterManager.addItems(items);
                     } catch (JSONException e) {
                         Toast.makeText(MapsActivity.this,
@@ -231,7 +232,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 hashRate5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        hashRating = 4;
+                        hashRating = 5;
                     }
                 });
                 EditText hashEntry = popup.findViewById(R.id.hashText);
