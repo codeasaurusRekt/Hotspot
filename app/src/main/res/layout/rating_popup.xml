@@ -14,7 +14,7 @@
             android:background="@drawable/fire_icon"
             android:backgroundTint="#bc4343"
             android:layout_gravity="top|start"
-            android:id="@+id/btnOpenRatingWheel"
+            android:id="@+id/hashBtnRate1"
     />
     <Button
             android:layout_width="44dp"
@@ -22,7 +22,7 @@
             android:layout_marginLeft="60dp"
             android:background="@drawable/fire_icon"
             android:backgroundTint="#ba5959"
-            android:id="@+id/btnRate2"
+            android:id="@+id/hashBtnRate2"
     />
     <Button
             android:layout_width="44dp"
@@ -30,7 +30,7 @@
             android:layout_marginLeft="120dp"
             android:background="@drawable/fire_icon"
             android:backgroundTint="#d19494"
-            android:id="@+id/btnRate3"
+            android:id="@+id/hashBtnRate3"
     />
     <Button
             android:layout_width="44dp"
@@ -39,14 +39,14 @@
             android:layout_gravity="top|center"
             android:background="@drawable/fire_icon"
             android:backgroundTint="#eacece"
-            android:id="@+id/btnRate4"
+            android:id="@+id/hashBtnRate4"
             />
     <Button
             android:layout_width="44dp"
             android:layout_height="44dp"
             android:layout_gravity="top|end"
             android:background="@drawable/fire_icon"
-            android:id="@+id/btnRate5"
+            android:id="@+id/hashBtnRate5"
     />
     <EditText
             android:layout_width="fill_parent"
@@ -62,11 +62,15 @@
             android:background="#FFFFFF"
             android:textSize="30sp"
     />
+
     <Button
-            android:text="Drop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCommitRating"
-            android:layout_gravity="bottom"
-    />
+        android:id="@+id/btnCommitRating"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:text="Drop"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
 </android.support.design.widget.CoordinatorLayout>
